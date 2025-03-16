@@ -1,9 +1,9 @@
 name: Test React App ci/cd
 permissions:
   contents: write
-on: [push,workflow_dispatch]
+on: workflow_dispatch
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Code
@@ -21,7 +21,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-action@4.1.1
         with:
-          branch: 'build'
-          folder: 'gt-pages'
+          branch: 'gt-pages'
+          folder: 'build'
           env:
             ACCES_TOKEN: ${{ secrets.SECRET_TOKEN }}
