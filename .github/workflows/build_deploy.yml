@@ -23,4 +23,3 @@ jobs:
           folder: 'build'
           branch: 'gt-pages'
           env:
-            ACCES_TOKEN: ${{ secrets.SECRET_TOKEN }}
