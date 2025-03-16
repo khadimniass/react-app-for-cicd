@@ -1,5 +1,5 @@
 name: Test React App ci/cd
-on: workflow_dispatch
+on: [push,workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
