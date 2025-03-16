@@ -1,4 +1,6 @@
 name: Test React App ci/cd
+permissions:
+  contents: write
 on: [push,workflow_dispatch]
 jobs:
   test:
@@ -14,3 +16,12 @@ jobs:
         run: npm install
       - name: Test
         run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-action@4.1.1
+        with:
+          branch: 'build'
+          folder: 'gt-pages'
+          env:
+            ACCES_TOKEN: ${{ secrets.SECRET_TOKEN }}
